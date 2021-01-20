@@ -1,22 +1,36 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-    colorButton: {
-        background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-        border: 0,
-        borderRadius: 3,
-        boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-        color: "white",
-        height: 48,
-        padding: "0 30px",
+    todoCard: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "70%",
+        ["@media (min-width: 780px)"]: {
+            width: 450,
+        },
+        padding: 40,
+        margin: "50px auto 0px auto",
     },
 
-    colorText: {
-        color: "red",
+    gridContainer: {
+        display: "flex",
+        justifyContent: "space-around",
+        width: "100%",
     },
 
-    colorCard: {
-        background: "green",
+    todoInput: {
+        paddin: 20,
+        width: "70%",
+        ["@media (min-width: 780px)"]: {
+            width: "80%",
+        },
+    },
+
+    inputTitle: {
+        fontSize: 35,
+        textTransform: "capitalize",
+        marginBottom: 20,
     },
 });
 

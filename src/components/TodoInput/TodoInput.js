@@ -1,15 +1,22 @@
 import React from "react";
-import { Card, Typography, Button } from "@material-ui/core";
+import { Card, Typography, Input, Grid } from "@material-ui/core";
 import useStyles from "./style";
+import AddTodoButton from "../AddTodoButton/AddTodoButton";
 
 function TodoInput() {
     const classes = useStyles();
     return (
-        <Card className={classes.colorCard}>
-            <Typography className={classes.colorText} variant="h1">
-                Hello, I'm a component!
+        <Card className={classes.todoCard}>
+            <Typography className={classes.inputTitle} variant="h3">
+                Awesome Todo List!
             </Typography>
-            <Button className={classes.colorButton}>The Button</Button>
+            <Grid className={classes.gridContainer}>
+                <Input
+                    className={classes.todoInput}
+                    placeholder="Add A New Todo!"
+                ></Input>
+                <AddTodoButton />
+            </Grid>
         </Card>
     );
 }

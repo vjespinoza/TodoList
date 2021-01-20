@@ -1,0 +1,12 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(
+        to right,
+        rgba(114, 9, 183, 1),
+        rgba(67, 97, 238, 1)
+    );
+}
