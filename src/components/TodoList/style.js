@@ -15,6 +15,10 @@ const useStyles = makeStyles({
         margin: "50px auto 0px auto",
         background: "rgba(255,255,255,0.1)",
     },
+    todoListItem: {
+        display: "block",
+        width: "100%",
+    },
 });
 
 export default useStyles;

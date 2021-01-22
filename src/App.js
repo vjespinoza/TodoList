@@ -1,16 +1,27 @@
-import "./App.css";
+import React, { useState } from "react";
 import { Grid } from "@material-ui/core";
+//Imported styles
+import "./App.css";
+//Imported components
 import TodoInput from "./components/TodoInput/TodoInput";
 import TodoList from "./components/TodoList/TodoList";
 
 function App() {
+    const [inputText, setInputText] = useState("");
+    const [todo, setTodo] = useState([]);
+
     return (
         <Grid className="app">
             <Grid>
-                <TodoInput />
+                <TodoInput
+                    todo={todo}
+                    setTodo={setTodo}
+                    inputText={inputText}
+                    setInputText={setInputText}
+                />
             </Grid>
             <Grid>
-                <TodoList />
+                <TodoList todo={todo} setTodo={setTodo} />
             </Grid>
         </Grid>
     );
