@@ -9,15 +9,27 @@ const TodoInput = ({todo, setTodo, inputText, setInputText}) => {
     const classes = useStyles();
 
     const inputTextHandler = (e) => {
+        
         setInputText(e.target.value)
     }
 
+    // let warningText = ''
+    //  console.log(warningText)
+
     const submitTodoHandler = () => {
-        setTodo([...todo, {
-            id: todo.length,
-            text: inputText,
-        }]);
-        setInputText('');
+        if (inputText.length > 0) {
+            setTodo([...todo, {
+                id: todo.length,
+                text: inputText,
+            }]);
+            setInputText('');
+        }
+        // else {
+                    
+        //    warningText = 'Your todo is empty!'
+        //    console.log(warningText)
+        
+        //}
     };
 
     const onKeyUpHandler = (e) => {
@@ -28,7 +40,8 @@ const TodoInput = ({todo, setTodo, inputText, setInputText}) => {
     }
 
     return (
-        <Card className={classes.todoCard}>
+        <div>
+            <Card className={classes.todoCard}>
             <Typography className={classes.inputTitle} variant="h3">
                 Awesome Todo List!
             </Typography>
@@ -41,9 +54,11 @@ const TodoInput = ({todo, setTodo, inputText, setInputText}) => {
                     placeholder="Add A New Todo!"
                 ></Input>
                 <AddTodoButton submitTodoHandler={submitTodoHandler}/>
-                
             </Grid>
-        </Card>
+            </Card>
+            {/* <Card>{warningText}</Card> */}
+        </div>
+            
     );
 }
 

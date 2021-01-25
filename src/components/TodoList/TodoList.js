@@ -5,7 +5,7 @@ import useStyles from "./style";
 //Imported components
 import TodoItem from "../TodoItem/TodoItem";
 
-const TodoList = ({ todo }) => {
+const TodoList = ({ todo, setTodo }) => {
     const classes = useStyles();
 
     if (todo.length !== 0) {
@@ -13,7 +13,13 @@ const TodoList = ({ todo }) => {
             <Card className={classes.todoListContainer}>
                 <ul className={classes.todoListItem}>
                     {todo.map((todoItem) => (
-                        <TodoItem key={todoItem.id} todoItem={todoItem.text} />
+                        <TodoItem
+                            todo={todo}
+                            setTodo={setTodo}
+                            key={todoItem.id}
+                            todoText={todoItem.text}
+                            todoItem={todoItem}
+                        />
                     ))}
                 </ul>
             </Card>
