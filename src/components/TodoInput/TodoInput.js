@@ -4,17 +4,15 @@ import { Card, Typography, Input, Grid } from "@material-ui/core";
 import useStyles from "./style";
 //Imported components
 import AddTodoButton from "../AddTodoButton/AddTodoButton";
+import EmptyInputAlert from "../../utilities/Dialog/EmptyInputAlert";
 
-const TodoInput = ({todo, setTodo, inputText, setInputText}) => {
+
+const TodoInput = ({todo, setTodo, inputText, setInputText, open, setOpen}) => {
     const classes = useStyles();
 
     const inputTextHandler = (e) => {
-        
         setInputText(e.target.value)
     }
-
-    // let warningText = ''
-    //  console.log(warningText)
 
     const submitTodoHandler = () => {
         if (inputText.length > 0) {
@@ -23,13 +21,7 @@ const TodoInput = ({todo, setTodo, inputText, setInputText}) => {
                 text: inputText,
             }]);
             setInputText('');
-        }
-        // else {
-                    
-        //    warningText = 'Your todo is empty!'
-        //    console.log(warningText)
-        
-        //}
+        } else { handleClickOpen() }
     };
 
     const onKeyUpHandler = (e) => {
@@ -39,9 +31,12 @@ const TodoInput = ({todo, setTodo, inputText, setInputText}) => {
         }
     }
 
+    const handleClickOpen = () => {
+        setOpen(true);
+      };
+
     return (
-        <div>
-            <Card className={classes.todoCard}>
+        <Card className={classes.todoCard}>
             <Typography className={classes.inputTitle} variant="h3">
                 Awesome Todo List!
             </Typography>
@@ -54,11 +49,9 @@ const TodoInput = ({todo, setTodo, inputText, setInputText}) => {
                     placeholder="Add A New Todo!"
                 ></Input>
                 <AddTodoButton submitTodoHandler={submitTodoHandler}/>
+                <EmptyInputAlert handleClickOpen={handleClickOpen} open={open} setOpen={setOpen} />
             </Grid>
-            </Card>
-            {/* <Card>{warningText}</Card> */}
-        </div>
-            
+        </Card>
     );
 }
 

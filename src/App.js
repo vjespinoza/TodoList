@@ -9,21 +9,26 @@ import TodoList from "./components/TodoList/TodoList";
 function App() {
     const [inputText, setInputText] = useState("");
     const [todo, setTodo] = useState([]);
+    const [open, setOpen] = useState(false);
 
     return (
-        <Grid className="app">
-            <Grid>
-                <TodoInput
-                    todo={todo}
-                    setTodo={setTodo}
-                    inputText={inputText}
-                    setInputText={setInputText}
-                />
+        <div>
+            <Grid className="app">
+                <Grid>
+                    <TodoInput
+                        todo={todo}
+                        setTodo={setTodo}
+                        open={open}
+                        setOpen={setOpen}
+                        inputText={inputText}
+                        setInputText={setInputText}
+                    />
+                </Grid>
+                <Grid>
+                    <TodoList todo={todo} setTodo={setTodo} />
+                </Grid>
             </Grid>
-            <Grid>
-                <TodoList todo={todo} setTodo={setTodo} />
-            </Grid>
-        </Grid>
+        </div>
     );
 }
 
