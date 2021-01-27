@@ -9,7 +9,6 @@ import TodoList from "./components/TodoList/TodoList";
 function App() {
     const [inputText, setInputText] = useState("");
     const [todo, setTodo] = useState([]);
-    const [open, setOpen] = useState(false);
 
     return (
         <div>
@@ -18,8 +17,6 @@ function App() {
                     <TodoInput
                         todo={todo}
                         setTodo={setTodo}
-                        open={open}
-                        setOpen={setOpen}
                         inputText={inputText}
                         setInputText={setInputText}
                     />
