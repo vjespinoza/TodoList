@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Typography, Input, Grid } from "@material-ui/core";
 //Imported styles
 import useStyles from "./style";
@@ -7,7 +7,9 @@ import AddTodoButton from "../AddTodoButton/AddTodoButton";
 import EmptyInputAlert from "../../utilities/Dialog/EmptyInputAlert";
 
 
-const TodoInput = ({todo, setTodo, inputText, setInputText, open, setOpen}) => {
+const TodoInput = ({todo, setTodo, inputText, setInputText}) => {
+    const [open, setOpen] = useState(false);
+    
     const classes = useStyles();
 
     const inputTextHandler = (e) => {
@@ -21,19 +23,25 @@ const TodoInput = ({todo, setTodo, inputText, setInputText, open, setOpen}) => {
                 text: inputText,
             }]);
             setInputText('');
-        } else { handleClickOpen() }
+        } else {
+            handleOpen()
+        }
     };
 
     const onKeyUpHandler = (e) => {
         e.preventDefault()
         if (e.keyCode === 13) {
             submitTodoHandler()
-        }
+        } 
     }
 
-    const handleClickOpen = () => {
+    const handleOpen = () => {
         setOpen(true);
-      };
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <Card className={classes.todoCard}>
@@ -49,7 +57,12 @@ const TodoInput = ({todo, setTodo, inputText, setInputText, open, setOpen}) => {
                     placeholder="Add A New Todo!"
                 ></Input>
                 <AddTodoButton submitTodoHandler={submitTodoHandler}/>
-                <EmptyInputAlert handleClickOpen={handleClickOpen} open={open} setOpen={setOpen} />
+                <EmptyInputAlert
+                    open={open}
+                    setOpen={setOpen}
+                    handleOpen={handleOpen}
+                    handleClose={handleClose}
+                    />
             </Grid>
         </Card>
     );
