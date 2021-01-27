@@ -11,6 +11,11 @@ const useStyles = makeStyles({
         minWidth: 30,
         height: 30,
         fontSize: 15,
+
+        "& span": {
+            pointerEvents: "none",
+            fontSize: 16,
+        },
     },
 });
 

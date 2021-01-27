@@ -11,19 +11,21 @@ function App() {
     const [todo, setTodo] = useState([]);
 
     return (
-        <Grid className="app">
-            <Grid>
-                <TodoInput
-                    todo={todo}
-                    setTodo={setTodo}
-                    inputText={inputText}
-                    setInputText={setInputText}
-                />
+        <div>
+            <Grid className="app">
+                <Grid>
+                    <TodoInput
+                        todo={todo}
+                        setTodo={setTodo}
+                        inputText={inputText}
+                        setInputText={setInputText}
+                    />
+                </Grid>
+                <Grid>
+                    <TodoList todo={todo} setTodo={setTodo} />
+                </Grid>
             </Grid>
-            <Grid>
-                <TodoList todo={todo} setTodo={setTodo} />
-            </Grid>
-        </Grid>
+        </div>
     );
 }
 
