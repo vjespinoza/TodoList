@@ -18,7 +18,7 @@ function EmptyInputAlert({ open, handleClose }) {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    Somethig went wrong...
+                    Something went wrong...
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
